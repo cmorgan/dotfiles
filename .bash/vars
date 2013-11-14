@@ -1,0 +1,99 @@
+# If this is an xterm use colors
+case "$TERM" in
+linux|xterm*|rxvt*|screen*)
+    USE_COLORS=Y
+    ;;
+esac
+# don't like colors...
+# USE_COLORS=N
+
+if [ -n "$DISPLAY" -a "$COLORTERM" == "gnome-terminal" ]; then
+    export TERM=xterm-256color
+fi
+
+# git bash completion
+for git_compl in "/etc/bash_completion.d/git" "/usr/share/git/completion/git-prompt.sh" "/usr/share/git/completion/git-completion.bash"; do
+        [ -f ${git_compl} ] && . ${git_compl}
+done
+
+if [ "x$USE_COLORS" = "xY" ]; then
+	git config --global color.ui true
+fi
+
+export PATH=$HOME/bin:$HOME/src/cmd:$HOME/.cabal/bin:/usr/bin/site_perl:/usr/local/pgsql/bin/:/usr/bin/vendor_perl:/opt/SenchaSDKTools-2.0.0-beta3/:$PATH
+export EDITOR="vim"
+export GIT_EDITOR="vim"
+
+export PAGER="less -nF"
+export GIT_PAGER="less -n"
+
+if [ `which chromium` ]; then
+    export BROWSER="chromium"
+fi
+
+export RHINO_HOME=/usr/share/java
+# Treat well escape chars
+export LESS="-R"
+
+# vi keybindings for bash
+# set -o vi
+export VIMRUNTIME=/usr/share/vim/vimcurrent/
+
+# remap some keys
+[ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
+
+# enable color support of ls
+# [ -x dircolors ] && eval "`dircolors -b`"
+eval "`dircolors ~/.bash/dir_colors`"
+
+# don't put duplicate lines in the history
+export HISTCONTROL=ignoredups
+
+# for gpg
+export GPG_TTY=`tty`
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# set variable identifying the chroot you git in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# Python version
+export PYVER=2.7
+if [ -f "$HOME/.pyrc" ]; then
+    export PYTHONSTARTUP="$HOME/.pyrc"
+fi
+
+# virtualenv
+if [ "$PYVER" == "2.7" ]; then
+        WORKON_HOME=$HOME/.virtualenvs
+        VIRTUALENVWRAPPER_PYTHON=`which python2`
+        if [ -x "/usr/bin/virtualenv2" ]; then
+                VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+        else
+                VIRTUALENVWRAPPER_VIRTUALENV=`which virtualenv`
+        fi
+	if [ -f "/etc/bash_completion.d/virtualenvwrapper" ]; then
+		source /etc/bash_completion.d/virtualenvwrapper
+	elif [ `which virtualenvwrapper.sh` ]; then
+		source `which virtualenvwrapper.sh`
+	fi
+else
+        WORKON_HOME=$HOME/.virtualenvs-2.6
+        VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.6
+        VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+        source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+# pip
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
+
+# postgres
+export PGDATA=/home/postgres

@@ -1,0 +1,7 @@
+*.pyc
+*.bak
+tags
+.DS_Store
+secret
+aliases
+.centerim/*

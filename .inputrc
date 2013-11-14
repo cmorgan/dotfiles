@@ -1,0 +1,18 @@
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set editing-mode vi
+set keymap vi
+set convert-meta on
+
+# Remap ESC to use my double 'j' keypress to toggle insert or movement
+# mode.
+$if mode=vi
+    set keymap vi-command
+    "jj": vi-insertion-mode
+    set keymap vi-insert
+    "jj": vi-movement-mode
+$endif

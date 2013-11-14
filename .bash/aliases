@@ -1,0 +1,27 @@
+# colorize commands
+if [ "x$USE_COLORS" = "xY" ]; then
+    if [ `uname` = "Darwin" ]; then
+        export LSCOLORS=Exfxcxdxbxegedabagacad
+        alias ls='ls -G'
+    else
+        alias ls='ls --color=auto'
+    fi
+    alias grep='grep --color=auto'
+else
+    alias ipython='ipython --colors NoColor'
+fi
+
+# ls aliases
+alias l='ls -1F'
+alias lf='ls -1f'
+alias ll='l -1la'
+alias lc='l -1C'
+
+# git
+alias gs='git st'
+alias gps='git push'
+
+# for safety
+alias rm='rm -i'
+
+alias gtypist='gtypist -b -e1'
