@@ -46,14 +46,28 @@ set spelllang=en_gb
 imap jj <ESC>
 
 " Toggle line numbers and fold column for easy copying:
-nnoremap <F3> :set number!<CR>:set foldcolumn=0<CR>
+"nnoremap <F3> :set number!<CR>:set foldcolumn=0<CR>
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 
 set background=dark
 colorscheme solarized
 
-set backspace=indent,eol,start
+set textwidth=79
+set autoindent
+" show the cursor position all the time
+set ruler
+" show commands
+set showcmd
+" do incremental searches (annoying but handy);
+set incsearch
+
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set nobackup
+set noswapfile
+
+"set backspace=indent,eol,start
+set backspace=2
 set encoding=utf-8
 set noexpandtab
 set foldlevelstart=99
