@@ -114,3 +114,18 @@ if has("autocmd")
     autocmd BufNewFile,BufRead,BufEnter *.tmpl set filetype=html
     autocmd BufNewFile,BufRead,BufEnter *.go set filetype=go
 endif
+
+"let g:pymode_lint_write = 0
+"let g:pymode_lint_ignore = "E501, W404, E303"
+let g:pymode_lint= 0
+
+
+" map <Leader>p :call InsertLine()<CR>
+
+" function! InsertLine()
+"   let trace = expand("import pdb; pdb.set_trace()")
+"   execute "normal o".trace
+" endfunction
+
+"nnoremap <leader>p yyP^Cimport pdb; pdb.set_trace()
+nnoremap <leader>p oimport pdb; pdb.set_trace()

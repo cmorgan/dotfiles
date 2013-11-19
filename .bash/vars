@@ -24,9 +24,6 @@ export PATH=$HOME/bin:$HOME/src/cmd:$HOME/.cabal/bin:/usr/bin/site_perl:/usr/loc
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 
-export PAGER="less -nF"
-export GIT_PAGER="less -n"
-
 if [ `which chromium` ]; then
     export BROWSER="chromium"
 fi

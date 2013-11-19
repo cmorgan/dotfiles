@@ -12,14 +12,16 @@ else
 fi
 
 # ls aliases
-alias l='ls -1F'
+alias l='ls -1Ftr'
 alias lf='ls -1f'
-alias ll='l -1la'
+alias ll='l -1latr'
 alias lc='l -1C'
 
 # git
 alias gs='git st'
 alias gps='git push'
+alias gpl='git pull'
+alias gl='git l'
 
 # for safety
 alias rm='rm -i'
