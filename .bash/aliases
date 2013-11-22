@@ -22,6 +22,7 @@ alias gs='git st'
 alias gps='git push'
 alias gpl='git pull'
 alias gl='git l'
+alias gdummy='git commit -a -m"stuff" && gps'
 
 # for safety
 alias rm='rm -i'
