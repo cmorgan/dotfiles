@@ -129,3 +129,4 @@ let g:pymode_lint= 0
 
 "nnoremap <leader>p yyP^Cimport pdb; pdb.set_trace()
 nnoremap <leader>p oimport pdb; pdb.set_trace()
+set colorcolumn=80
