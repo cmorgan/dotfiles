@@ -28,3 +28,9 @@ alias gdummy='git commit -a -m"stuff" && gps'
 alias rm='rm -i'
 
 alias gtypist='gtypist -b -e1'
+alias diff='colordiff'
+
+alias trade='tmux attach -t trade'
+alias trade2='tmux attach -t trade2'
+alias research='tmux attach -t research'
+alias research2='tmux attach -t research2'

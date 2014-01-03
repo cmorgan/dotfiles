@@ -16,6 +16,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'cmorgan/riv.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'insanum/vim-rst-tables'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'
@@ -66,8 +67,8 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set nobackup
 set noswapfile
 
-"set backspace=indent,eol,start
-set backspace=2
+set backspace=indent,eol,start
+"set backspace=2
 set encoding=utf-8
 set noexpandtab
 set foldlevelstart=99
@@ -130,3 +131,17 @@ let g:pymode_lint= 0
 "nnoremap <leader>p yyP^Cimport pdb; pdb.set_trace()
 nnoremap <leader>p oimport pdb; pdb.set_trace()
 set colorcolumn=80
+
+" when indenting in visual mode keep the block highlighted
+vnoremap < <gv
+vnoremap > >gv
+
+" Toggle line numbers and fold column for easy copying:
+nnoremap <F3> :set number!<CR>:set foldcolumn=0<CR>
+set smartindent
+" odd issue with vim not matching values set for backspace and delete as produced by linux
+set t_kb=
+set t_kD=[3~
+
+" always change paths to the current dir
+set autochdir
