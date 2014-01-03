@@ -17,6 +17,7 @@ Bundle 'cmorgan/riv.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'insanum/vim-rst-tables'
+Bundle 'sgeb/vim-matlab'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'
@@ -145,3 +146,5 @@ set t_kD=[3~
 
 " always change paths to the current dir
 set autochdir
+
+autocmd FileType matlab set commentstring=%%s
