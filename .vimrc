@@ -18,6 +18,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'insanum/vim-rst-tables'
 Bundle 'sgeb/vim-matlab'
+Bundle 'tmhedberg/SimpylFold'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'
@@ -72,7 +73,7 @@ set backspace=indent,eol,start
 "set backspace=2
 set encoding=utf-8
 set noexpandtab
-set foldlevelstart=99
+"set foldlevelstart=5
 set hls
 set incsearch
 set laststatus=2
@@ -97,7 +98,7 @@ nnoremap <leader>l :SyntasticCheck<CR>
 let fortran_free_source=1
 let g:haskell_conceal_enumerations=0
 let g:hpaste_author = 'Chris Morgan'
-let g:pymode_folding=0
+let g:pymode_folding=1
 let g:pymode_lint_mccabe_complexity=9
 let g:pymode_lint_write=1
 let g:pymode_motion=1
@@ -148,3 +149,12 @@ set t_kD=[3~
 set autochdir
 
 autocmd FileType matlab set commentstring=%%s
+
+
+" folding
+" toggle open fold
+nnoremap f zA
+" open all
+nnoremap F zR
+" clos all
+nnoremap <C-f> zM
