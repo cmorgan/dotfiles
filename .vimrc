@@ -13,7 +13,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
-Bundle 'cmorgan/riv.vim'
+Bundle 'vim-scripts/rest.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'insanum/vim-rst-tables'
@@ -150,6 +150,7 @@ set autochdir
 
 autocmd FileType matlab set commentstring=%%s
 
+autocmd FileType rst set nofoldenable
 
 " folding
 " toggle open fold
@@ -158,3 +159,4 @@ nnoremap f zA
 nnoremap F zR
 " clos all
 nnoremap <C-f> zM
+
