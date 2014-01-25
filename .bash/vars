@@ -94,3 +94,5 @@ export PIP_RESPECT_VIRTUALENV=true
 
 # postgres
 export PGDATA=/home/postgres
+
+source ~/.bash/virtualenv-auto-activate.sh
