@@ -34,3 +34,4 @@ alias trade='tmux attach -t trade'
 alias trade2='tmux attach -t trade2'
 alias research='tmux attach -t research'
 alias research2='tmux attach -t research2'
+alias cd=venv_cd
