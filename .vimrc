@@ -18,6 +18,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'insanum/vim-rst-tables'
 Bundle 'sgeb/vim-matlab'
 Bundle 'tmhedberg/SimpylFold'
+Bundle 'tpope/vim-fireplace'
+Bundle 'kien/rainbow_parentheses.vim'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'
@@ -135,3 +137,24 @@ nnoremap <F3> :set number!<CR>:set foldcolumn=0<CR>
 
 autocmd FileType matlab set commentstring=%%s
 autocmd FileType rst set nofoldenable
+
+" Solarized parentheses
+let g:rbpt_colorpairs = [
+  \ [ '13', '#6c71c4'],
+  \ [ '5',  '#d33682'],
+  \ [ '1',  '#dc322f'],
+  \ [ '9',  '#cb4b16'],
+  \ [ '3',  '#b58900'],
+  \ [ '2',  '#859900'],
+  \ [ '6',  '#2aa198'],
+  \ [ '4',  '#268bd2'],
+  \ ]
+
+" Enable rainbow parentheses for all buffers
+augroup rainbow_parentheses
+  au!
+  au VimEnter *.clj RainbowParenthesesActivate
+  au BufEnter *.clj RainbowParenthesesLoadRound
+  au BufEnter *.clj RainbowParenthesesLoadSquare
+  au BufEnter *.clj RainbowParenthesesLoadBraces
+augroup END

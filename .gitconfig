@@ -64,3 +64,6 @@
     show-refs = yes
 [push]
 	default = simple
+
+[filter "stripoutput"]
+    clean = "/home/cmorgan/src/nbstripout"
