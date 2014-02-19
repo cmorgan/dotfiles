@@ -96,3 +96,8 @@ export PIP_RESPECT_VIRTUALENV=true
 export PGDATA=/home/postgres
 
 source ~/.git-prompt.sh
+
+PATH=$PATH:/opt/phantomjs/bin:/opt/casperjs/bin:/opt/scilab/scilab-5.4.1/bin
+# search bash history using arrow keys
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
