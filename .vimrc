@@ -159,5 +159,13 @@ augroup rainbow_parentheses
   au BufEnter *.clj RainbowParenthesesLoadBraces
 augroup END
 
-map <F4> :mksession! ~/vim_session <cr> " Quick write session with F2           
-map <F5> :source ~/vim_session <cr>     " And load session with F3 
+" vim sessions shortcut
+map <F4> :mksession! ~/vim_session <cr> " Quick write session with F2
+map <F5> :source ~/vim_session <cr>     " And load session with F3
+
+" change the default behaviour of ctrl-p in order to make 'open in new-tab' the
+" behaviour of Cr.
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
