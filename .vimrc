@@ -18,8 +18,12 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'insanum/vim-rst-tables'
 Bundle 'sgeb/vim-matlab'
 Bundle 'tmhedberg/SimpylFold'
-Bundle 'tpope/vim-fireplace'
+Bundle 'jpalardy/vim-slime'
+" clojure
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+Bundle 'vim-scripts/paredit.vim'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'
@@ -138,7 +142,7 @@ nnoremap <F3> :set number!<CR>:set foldcolumn=0<CR>
 autocmd FileType matlab set commentstring=%%s
 autocmd FileType rst set nofoldenable
 
-" Solarized parentheses
+" Solarized rainbow_parentheses
 let g:rbpt_colorpairs = [
   \ [ '13', '#6c71c4'],
   \ [ '5',  '#d33682'],
@@ -151,13 +155,17 @@ let g:rbpt_colorpairs = [
   \ ]
 
 " Enable rainbow parentheses for all buffers
-augroup rainbow_parentheses
-  au!
-  au VimEnter *.clj RainbowParenthesesActivate
-  au BufEnter *.clj RainbowParenthesesLoadRound
-  au BufEnter *.clj RainbowParenthesesLoadSquare
-  au BufEnter *.clj RainbowParenthesesLoadBraces
-augroup END
+let g:slime_target = "tmux"
+autocmd Syntax clojure RainbowParenthesesLoadRound
+autocmd BufEnter *.clj RainbowParenthesesToggle
+autocmd BufLeave *.clj RainbowParenthesesToggle
+" augroup rainbow_parentheses
+"   au!
+"   au VimEnter *.clj RainbowParenthesesActivate
+"   au BufEnter *.clj RainbowParenthesesLoadRound
+"   au BufEnter *.clj RainbowParenthesesLoadSquare
+"   au BufEnter *.clj RainbowParenthesesLoadBraces
+" augroup END
 
 " vim sessions shortcut
 map <F4> :mksession! ~/vim_session <cr> " Quick write session with F2
@@ -169,3 +177,5 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
+
+let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
