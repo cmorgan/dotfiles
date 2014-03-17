@@ -23,7 +23,7 @@ function n(){
 }
 
 function f(){
-    find . -type f -name "$1*" ! -name "*.pyc" ! -name ".git/*"
+    find . -type f -name "$1*" ! -name "*.pyc"
 }
 
 function fpy(){
