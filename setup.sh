@@ -1,15 +1,15 @@
 #!/bin/bash
 
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+#git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 function link {
-	ln -sf $HOME/src/dotfiles/$1 $HOME/$1
+	ln -sf $HOME/src/other/dotfiles/$1 $HOME/$1
 }
 
 
 bash=(.bash .bashrc .bash_profile)
 vim=(.vim .vimrc)
-git=(.git-prompt .gitconfig .git-prompt.sh)
+git=(.gitconfig .git-prompt.sh)
 other=(.inputrc .tmux.conf)
 
 for x in ${bash[@]}; do

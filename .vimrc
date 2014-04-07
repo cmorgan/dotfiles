@@ -27,6 +27,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'vim-scripts/paredit.vim'
+"Bundle 'altercation/vim-colors-solarized'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'

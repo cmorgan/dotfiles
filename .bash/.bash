@@ -1,1 +1,1 @@
-/home/chris/src/dotfiles/.bash
+/home/chris/src/other/dotfiles/.bash

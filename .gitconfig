@@ -62,8 +62,9 @@
     show-date = yes
     tab-size = 8
     show-refs = yes
-[push]
-	default = simple
+
+#[push]
+#	default = simple
 
 [filter "stripoutput"]
     clean = "/home/cmorgan/src/nbstripout"
