@@ -9,7 +9,7 @@ function link {
 
 bash=(.bash .bashrc .bash_profile)
 vim=(.vim .vimrc)
-git=(.gitconfig .git-prompt.sh)
+git=(.gitconfig .git-prompt.sh .gitconfig-local)
 other=(.inputrc .tmux.conf)
 
 for x in ${bash[@]}; do
