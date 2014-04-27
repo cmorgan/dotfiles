@@ -101,11 +101,14 @@ function hdone() { sudo hamster-cli stop $1;}
 
 # Personal ToDo
 function ptodone() { sed -i -e "/$*/d" ~/epistle/pers_todo.txt;}
-
 function ptodo() { if [ $# == "0" ]; then cat ~/epistle/pers_todo.txt; 
     else echo "* $@" >> ~/epistle/pers_todo.txt; 
     fi;
     }
+
+function vpt(){
+	vi ~/epistle/pers_todo.txt
+}
 
 
 # Networkscale ToDo
