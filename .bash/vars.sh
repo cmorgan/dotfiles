@@ -98,11 +98,11 @@ export PGDATA=/home/postgres
 source ~/.git-prompt.sh
 
 PATH=$PATH:/opt/phantomjs/bin:/opt/casperjs/bin:/opt/scilab/scilab-5.4.1/bin
-PATH=$PATH:$HOME/.jenv/bin
+#PATH=$PATH:$HOME/.jenv/bin
 # search bash history using arrow keys
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-eval "$(jenv init -)"
+#eval "$(jenv init -)"
 
 export EC2_HOME=/home/chris/src/aws/ec2-api-tools-1.6.6.3
 export AWS_AUTO_SCALING_HOME=/home/chris/src/aws/AutoScaling-1.0.61.2
