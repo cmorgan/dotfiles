@@ -129,3 +129,5 @@ export CDPATH=$HOME:$HOME/src
 export AWS_RDS_HOME=$HOME/bin/RDSCli-1.15.001
 export PATH=$PATH:$AWS_RDS_HOME/bin
 export AWS_CREDENTIAL_FILE=$HOME/.rds.config
+export AHOY_HOME=/home/chris/src/ahoy
+

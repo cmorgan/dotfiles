@@ -37,4 +37,7 @@ alias research2='tmux attach -t research2'
 alias cd=venv_cd
 alias open='gnome-open'
 alias moff='xset dpms force off'
+
+# Solo
 alias tas="source $TAS_HOME/tools/workstation/aliases.sh; ssh-add $TAS_HOME/devops/security/gss-developers.pem"
+alias ahoy="source $AHOY_HOME/tools/workstation/aliases.sh"
