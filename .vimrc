@@ -18,8 +18,9 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'insanum/vim-rst-tables'
 Bundle 'sgeb/vim-matlab'
 Bundle 'tmhedberg/SimpylFold'
-Bundle 'jpalardy/vim-slime'
-"Bundle 'Yggdroot/indentLine'
+" this is slow
+"Bundle 'jpalardy/vim-slime'
+Bundle 'Yggdroot/indentLine'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Shougo/neocomplete.vim'
 " clojure
