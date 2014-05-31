@@ -29,6 +29,8 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'vim-scripts/paredit.vim'
 "Bundle 'altercation/vim-colors-solarized'
+Bundle 'cespare/vim-toml'
+Bundle 'mikewest/vimroom'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'
@@ -61,9 +63,12 @@ imap jj <ESC>
 set history=1000
 set undolevels=1000
 set background=dark
-set textwidth=79
+"set textwidth=79
+au FileType python set textwidth=79
+au FileType rst set textwidth=79
 set autoindent
 " show the cursor position all the time
+"
 set ruler
 " show commands
 set showcmd
@@ -190,3 +195,6 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
 " let g:indentLine_color_gui = '#09AA08'
 " let g:indentLine_char = '│'
 let g:neocomplete#enable_at_startup = 1
+
+" For local replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>

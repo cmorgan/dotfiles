@@ -7,4 +7,7 @@ for config in "functions.sh" "vars.sh" "prompt.sh" "aliases.sh"; do
 done
 
 export GOPATH="$HOME/src/other/go"
+export GOPATH=$HOME/src/go
 export PATH=$PATH:"$HOME/src/other/go/bin"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/src/go/bin
