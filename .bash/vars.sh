@@ -104,13 +104,13 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 #eval "$(jenv init -)"
 
-export EC2_HOME=/home/chris/src/aws/ec2-api-tools-1.6.6.3
-export AWS_AUTO_SCALING_HOME=/home/chris/src/aws/AutoScaling-1.0.61.2
-export AWS_IAM_HOME=/home/chris/src/aws/IAMCli-1.5.0
-export AWS_CLOUDWATCH_HOME=/home/chris/src/aws/CloudWatch-1.0.12.1
-export AWS_ELB_HOME=/home/chris/src/aws/ElasticLoadBalancing-1.0.17.0
-export AWS_RDS_HOME=/home/chris/src/aws/RDSCli-1.10.003
-export AWS_CLOUDFORMATION_HOME=/home/chris/src/aws/AWSCloudFormation-1.0.12
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.0.2
+export AWS_AUTO_SCALING_HOME=/home/chris/src/other/aws/AutoScaling-1.0.61.2
+export AWS_IAM_HOME=/home/chris/src/other/aws/IAMCli-1.5.0
+export AWS_CLOUDWATCH_HOME=/home/chris/src/other/aws/CloudWatch-1.0.12.1
+export AWS_ELB_HOME=/home/chris/src/other/aws/ElasticLoadBalancing-1.0.17.0
+export AWS_RDS_HOME=/home/chris/src/other/aws/RDSCli-1.10.003
+export AWS_CLOUDFORMATION_HOME=/home/chris/src/other/aws/AWSCloudFormation-1.0.12
 export PATH=$EC2_HOME/bin:$PATH
 export PATH=$AWS_AUTO_SCALING_HOME/bin:$PATH
 export PATH=$AWS_CLOUDWATCH_HOME/bin:$PATH
@@ -129,5 +129,3 @@ export CDPATH=$HOME:$HOME/src
 export AWS_RDS_HOME=$HOME/bin/RDSCli-1.15.001
 export PATH=$PATH:$AWS_RDS_HOME/bin
 export AWS_CREDENTIAL_FILE=$HOME/.rds.config
-export AHOY_HOME=/home/chris/src/ahoy
-
