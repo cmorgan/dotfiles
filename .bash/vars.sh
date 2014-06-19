@@ -123,9 +123,7 @@ export JAVA_HOME7=/usr/lib/jvm/java-7-oracle
 export JAVA_HOME8=/usr/lib/jvm/java-8-oracle
 export JAVA_HOME=$JAVA_HOME7
 
-export AWS_CLOUDFORMATION_HOME=/home/chris/src/aws/AWSCloudFormation-1.0.12
-export PATH=$AWS_CLOUDFORMATION_HOME/bin:$PATH
-export CDPATH=$HOME:$HOME/src
+#export CDPATH=$HOME:$HOME/src
 export AWS_RDS_HOME=$HOME/bin/RDSCli-1.15.001
 export PATH=$PATH:$AWS_RDS_HOME/bin
 export AWS_CREDENTIAL_FILE=$HOME/.rds.config
