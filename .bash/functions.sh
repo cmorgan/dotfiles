@@ -1,3 +1,7 @@
+function diary() {
+	vi ~/docs/d/$(date "+%y%m%d").rst
+}
+
 function set_jh {
 	var_name=JAVA_HOME$1
 	export JAVA_HOME="${!var_name}"
@@ -234,3 +238,5 @@ venv_cd () {
 # Call check_virtualenv in case opening directly into a directory (e.g
 # when opening a new tab in Terminal.app).
 check_virtualenv
+
+
