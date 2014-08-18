@@ -20,20 +20,21 @@ Bundle 'sgeb/vim-matlab'
 Bundle 'tmhedberg/SimpylFold'
 " this is slow
 "Bundle 'jpalardy/vim-slime'
-Bundle 'Yggdroot/indentLine'
+"Bundle 'Yggdroot/indentLine'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Shougo/neocomplete.vim'
 " clojure
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
-Bundle 'vim-scripts/paredit.vim'
+"Bundle 'vim-scripts/paredit.vim'
 Bundle 'cespare/vim-toml'
 "Bundle 'altercation/vim-colors-solarized'
 Bundle 'cespare/vim-toml'
 Bundle 'mikewest/vimroom'
 "Bundle 'vim-scripts/Java-Syntax-and-Folding'
 Bundle 'vim-scripts/simplefold'
+Bundle 'juvenn/mustache.vim'
 
 if v:version >= 703
     Bundle 'dag/vim2hs'

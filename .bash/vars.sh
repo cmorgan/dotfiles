@@ -127,3 +127,5 @@ export JAVA_HOME=$JAVA_HOME7
 export AWS_RDS_HOME=$HOME/bin/RDSCli-1.15.001
 export PATH=$PATH:$AWS_RDS_HOME/bin
 export AWS_CREDENTIAL_FILE=$HOME/.rds.config
+
+export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
