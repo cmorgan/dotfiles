@@ -55,7 +55,7 @@ nnoremap <silent><C-r> :tabclose<CR>
 source $VIMRUNTIME/macros/matchit.vim
 
 filetype plugin indent on
-syntax on
+"syntax on
 
 if $COLORTERM == 'gnome-terminal'
 	set t_Co=256
@@ -140,7 +140,7 @@ nnoremap F zR
 " clos all
 nnoremap <C-f> zM
 
-colorscheme solarized
+"colorscheme solarized
 set colorcolumn=80
 
 " when indenting in visual mode keep the block highlighted

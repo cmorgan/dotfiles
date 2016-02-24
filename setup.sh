@@ -3,7 +3,7 @@
 #git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 function link {
-	ln -sf $HOME/src/other/dotfiles/$1 $HOME/$1
+	ln -sf $HOME/src/dotfiles/$1 $HOME/$1
 }
 
 
