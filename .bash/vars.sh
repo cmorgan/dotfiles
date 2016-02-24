@@ -129,3 +129,4 @@ export PATH=$PATH:$AWS_RDS_HOME/bin
 export AWS_CREDENTIAL_FILE=$HOME/.rds.config
 
 export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
+export KEY=~/.ssh/chris_reddeer
