@@ -16,6 +16,7 @@ alias l='ls -1Ftr'
 alias lf='ls -1f'
 alias ll='l -1latr'
 alias lc='l -1C'
+alias em='emacsclient -c -nw'
 
 # git
 alias gs='git st'
@@ -38,12 +39,9 @@ alias cd=venv_cd
 alias open='gnome-open'
 alias moff='xset dpms force off'
 
-# Solo
-export AHOY_HOME=/home/chris/src/ahoy
-alias tas="source $TAS_HOME/tools/workstation/aliases.sh; ssh-add $TAS_HOME/devops/security/gss-developers.pem"
-alias ahoy="source $AHOY_HOME/tools/workstation/aliases.sh"
-alias n="cd ~/solo_notes"
-
 # conda
 alias on='source activate'
 alias off='source deactivate'
+
+# py
+alias ipy='ipython'

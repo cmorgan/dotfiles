@@ -1,51 +1,5 @@
 set nocompatible  " be iMproved
 filetype off  " required by vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-Bundle 'Shougo/vimproc'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'klen/python-mode'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/rest.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'insanum/vim-rst-tables'
-Bundle 'sgeb/vim-matlab'
-Bundle 'tmhedberg/SimpylFold'
-" this is slow
-"Bundle 'jpalardy/vim-slime'
-"Bundle 'Yggdroot/indentLine'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Shougo/neocomplete.vim'
-" clojure
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-"Bundle 'vim-scripts/paredit.vim'
-Bundle 'cespare/vim-toml'
-"Bundle 'altercation/vim-colors-solarized'
-Bundle 'cespare/vim-toml'
-Bundle 'mikewest/vimroom'
-"Bundle 'vim-scripts/Java-Syntax-and-Folding'
-Bundle 'vim-scripts/simplefold'
-Bundle 'juvenn/mustache.vim'
-
-if v:version >= 703
-    Bundle 'dag/vim2hs'
-    if has('patch584') && has('python')
-        Bundle 'Valloric/YouCompleteMe'
-    endif
-endif
-
-if executable('ghc-mod')
-    Bundle 'eagletmt/ghcmod-vim'
-endif
 
 nnoremap <silent><C-x> :tabprevious<CR>
 nnoremap <silent><C-c> :tabnext<CR>
