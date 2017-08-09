@@ -1,5 +1,6 @@
 # If not running interactively, don't do anything
 #[ -z "$PS1" ] && return
+#
 
 BASH_ROOT="$HOME/.bash"
 for config in "local.sh" "functions.sh" "vars.sh" "prompt.sh" "aliases.sh"; do
@@ -17,7 +18,6 @@ export PATH=$PATH:$HOME/src/q/scripts
 
 # added by Miniconda2 3.19.0 installer
 export PATH="/home/chris/miniconda2/bin:$PATH"
-
 export PIP_REQUIRE_VIRTUALENV=false
 
-
+export PATH=/home/chris/miniconda/bin:$PATH

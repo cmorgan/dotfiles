@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+mkdir -p ~/.vim/bundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 function link {
 	ln -sf $HOME/src/dotfiles/$1 $HOME/$1

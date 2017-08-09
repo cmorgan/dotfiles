@@ -1,5 +1,4 @@
 set nocompatible  " be iMproved
-filetype off  " required by vundle
 
 nnoremap <silent><C-x> :tabprevious<CR>
 nnoremap <silent><C-c> :tabnext<CR>
