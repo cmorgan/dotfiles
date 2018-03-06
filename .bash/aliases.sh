@@ -38,6 +38,8 @@ alias research2='tmux attach -t research2'
 alias cd=venv_cd
 alias open='gnome-open'
 alias moff='xset dpms force off'
+alias on='source activate'
+alias off='source deactivate'
 
 # conda
 alias on='source activate'
@@ -45,3 +47,7 @@ alias off='source deactivate'
 
 # py
 alias ipy='ipython'
+# Solo
+alias tas="source $TAS_HOME/tools/workstation/aliases.sh; ssh-add $TAS_HOME/devops/security/gss-developers.pem"
+alias ahoy="source $AHOY_HOME/tools/workstation/aliases.sh"
+alias slock="moff && slock"
