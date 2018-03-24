@@ -4,7 +4,7 @@
 
 BASH_ROOT="$HOME/.bash"
 for config in "local.sh" "functions.sh" "vars.sh" "prompt.sh" "aliases.sh"; do
-	[ -f ${BASH_ROOT}/${config} ] && . ${BASH_ROOT}/${config}
+  [ -f ${BASH_ROOT}/${config} ] && . ${BASH_ROOT}/${config}
 done
 
 export GOPATH="$HOME/src/other/go"
@@ -21,3 +21,23 @@ export PATH="/home/chris/miniconda2/bin:$PATH"
 export PIP_REQUIRE_VIRTUALENV=false
 
 export PATH=/home/chris/miniconda/bin:$PATH
+
+# Add color-coded git branch to bash prompt
+# function git_branch {
+#   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* (*\([^)]*\))*/\1/'
+# }
+
+# function markup_git_branch {
+#   if [[ -n $@ ]]; then
+#     if [[ -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
+#       echo -e " \001\033[32m\002($@)\001\033[0m\002"
+#     else
+#       echo -e " \001\033[31m\002($@)\001\033[0m\002"
+#     fi
+#   fi
+# }
+
+# export PS1="\h:\W\$(markup_git_branch \$(git_branch)) \u$ "
+
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+

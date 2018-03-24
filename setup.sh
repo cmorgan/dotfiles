@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p ~/.vim/bundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+# mkdir -p ~/.vim/bundle
+# git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 function link {
 	ln -sf $HOME/src/dotfiles/$1 $HOME/$1
@@ -9,7 +9,8 @@ function link {
 
 
 bash=(.bash .bashrc .bash_profile)
-vim=(.vim .vimrc)
+# vim=(.vim .vimrc)
+vim=()
 git=(.gitconfig .git-prompt.sh .gitconfig-local)
 other=(.inputrc .tmux.conf)
 

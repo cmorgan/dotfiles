@@ -1,27 +1,28 @@
 function diary() {
-	vi ~/docs/d/$(date "+%y%m%d").rst
+  vi ~/docs/d/$(date "+%y%m%d").rst
+}
+
+function workon() {
+    source activate $1
 }
 
 function set_jh {
-	var_name=JAVA_HOME$1
-	export JAVA_HOME="${!var_name}"
-	echo $JAVA_HOME
+  var_name=JAVA_HOME$1
+  export JAVA_HOME="${!var_name}"
+  echo $JAVA_HOME
 }
 
 function pylint {
-	pylint -f parseable -E -d E0213,E1101,E1002,E1121,E0211,E0611,E0602,E1103 
+  pylint -f parseable -E -d E0213,E1101,E1002,E1121,E0211,E0611,E0602,E1103
 }
-
 
 function count {
     ls -1AU $* | wc -l
 }
 
-
 function dirsize {
     du -sk .[!.]* *|sort -n
 }
-
 
 function nose(){
     nosetests -sdv $(find . -type f -name "$1*" ! -name "*.pyc")
@@ -92,8 +93,8 @@ function gitbr {
 
 
 # Dayjob ToDo
-function todo() { if [ $# == "0" ]; then cat ~/epistle/ToDo.txt; 
-    else echo "* $@" >> ~/epistle/ToDo.txt; 
+function todo() { if [ $# == "0" ]; then cat ~/epistle/ToDo.txt;
+    else echo "* $@" >> ~/epistle/ToDo.txt;
     fi;
     }
 
@@ -105,19 +106,19 @@ function hdone() { sudo hamster-cli stop $1;}
 
 # Personal ToDo
 function ptodone() { sed -i -e "/$*/d" ~/epistle/pers_todo.txt;}
-function ptodo() { if [ $# == "0" ]; then cat ~/epistle/pers_todo.txt; 
-    else echo "* $@" >> ~/epistle/pers_todo.txt; 
+function ptodo() { if [ $# == "0" ]; then cat ~/epistle/pers_todo.txt;
+    else echo "* $@" >> ~/epistle/pers_todo.txt;
     fi;
     }
 
 function vpt(){
-	vi ~/epistle/pers_todo.txt
+  vi ~/epistle/pers_todo.txt
 }
 
 
 # Networkscale ToDo
-function ntodo() { if [ $# == "0" ]; then cat ~/epistle/netscale_todo.txt; 
-    else echo "* $@" >> ~/epistle/netscale_todo.txt; 
+function ntodo() { if [ $# == "0" ]; then cat ~/epistle/netscale_todo.txt;
+    else echo "* $@" >> ~/epistle/netscale_todo.txt;
     fi;
     }
 
@@ -155,7 +156,7 @@ if [ $# == 1 ]; then
         echo 'activating grails 1.x';
         rm -f /opt/grails/grails;
         ln -s /opt/grails/grails-1.3.9 /opt/grails/grails
-    else 
+    else
         echo 'activating grails 2.x';
         rm -f /opt/grails/grails;
         ln -s /opt/grails/grails-2.2.0 /opt/grails/grails
@@ -171,9 +172,9 @@ function doalarm(){
     # from
     # http://stackoverflow.com/questions/601543/command-line-command-to-auto-kill-a-command-after-a-certain-amount-of-time
     # an alarm(2) is inherited by across execve(2) and alarm is fatal by
-    # default thereofre we can start a program with 
+    # default thereofre we can start a program with
     # doalarm 10  program.sh  and the program will die
-    # 
+    #
     perl -e 'alarm shift; exec @ARGV' "$@";
     }
 
@@ -184,12 +185,12 @@ function keepass(){
 }
 
 
-# moves a tmux window before a specified window 
+# moves a tmux window before a specified window
 function move-before(){
     for ((i=$1; i<$2-1; i++))
     do
         tmux swap-window -s :$i -t :$((i+1))
-    done    
+    done
 }
 
 
@@ -238,5 +239,3 @@ venv_cd () {
 # Call check_virtualenv in case opening directly into a directory (e.g
 # when opening a new tab in Terminal.app).
 check_virtualenv
-
-

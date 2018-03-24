@@ -17,7 +17,7 @@ for git_compl in "/etc/bash_completion.d/git" "/usr/share/git/completion/git-pro
 done
 
 if [ "x$USE_COLORS" = "xY" ]; then
-	git config --global color.ui true
+  git config --global color.ui true
 fi
 
 export PATH=$HOME/bin:$HOME/src/cmd:$HOME/.cabal/bin:/usr/bin/site_perl:/usr/local/pgsql/bin/:/usr/bin/vendor_perl:/opt/SenchaSDKTools-2.0.0-beta3/:$PATH
@@ -33,8 +33,8 @@ export RHINO_HOME=/usr/share/java
 export LESS="-R"
 
 # vi keybindings for bash
-# set -o vi
-export VIMRUNTIME=/usr/share/vim/vimcurrent/
+set -o vi
+#export VIMRUNTIME=/usr/share/vim/vimcurrent/
 
 # remap some keys
 [ -f ~/.xmodmap ] && xmodmap ~/.xmodmap
@@ -76,11 +76,11 @@ if [ "$PYVER" == "2.7" ]; then
         else
                 VIRTUALENVWRAPPER_VIRTUALENV=`which virtualenv`
         fi
-	if [ -f "/etc/bash_completion.d/virtualenvwrapper" ]; then
-		source /etc/bash_completion.d/virtualenvwrapper
-	elif [ `which virtualenvwrapper.sh` ]; then
-		source `which virtualenvwrapper.sh`
-	fi
+  if [ -f "/etc/bash_completion.d/virtualenvwrapper" ]; then
+    source /etc/bash_completion.d/virtualenvwrapper
+  elif [ `which virtualenvwrapper.sh` ]; then
+    source `which virtualenvwrapper.sh`
+  fi
 else
         WORKON_HOME=$HOME/.virtualenvs-2.6
         VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.6
@@ -117,6 +117,7 @@ export PATH=$AWS_IAM_HOME/bin:$PATH
 export PATH=$AWS_ELB_HOME/bin:$PATH
 export PATH=$AWS_RDS_HOME/bin:$PATH
 export PATH=$AWS_CLOUDFORMATION_HOME/bin:$PATH
+export PATH=/home/chris/miniconda3/bin:$PATH
 
 export JAVA_HOME7=/usr/lib/jvm/java-7-oracle
 export JAVA_HOME8=/usr/lib/jvm/java-8-oracle
