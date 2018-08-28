@@ -43,17 +43,18 @@
 	rank = shortlog -sn --no-merges
 	searchcommits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
 	last = cat-file commit HEAD
-    ci = commit
+	ci = commit
     pl = pull
     pu = push
-    br = branch
+	br = branch
     ck = checkout
-    st = status
+	st = status
     last = rev-list -n 1 HEAD --
     gerrit = push origin HEAD:refs/for/master
     l = log --oneline --pretty=format:'%Cblue%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     lg = log --oneline --graph
     ls = log --stat=200 --stat-name-width=150
+	co = checkout
 
 [diff "mwbdiff"]
     textconv = mwb-diff

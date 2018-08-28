@@ -1,82 +1,130 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+
+export EDITOR=vim
+
+#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+#export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
+
 # If not running interactively, don't do anything
-#[ -z "$PS1" ] && return
-#
+[ -z "$PS1" ] && return
 
-BASH_ROOT="$HOME/.bash"
-for config in "local.sh" "functions.sh" "vars.sh" "prompt.sh" "aliases.sh"; do
-  [ -f ${BASH_ROOT}/${config} ] && . ${BASH_ROOT}/${config}
-done
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
 
-source ~/.git-prompt.sh
+# append to the history file, don't overwrite it
+shopt -s histappend
 
-export GOPATH="$HOME/src/other/go"
-export GOPATH=$HOME/src/go
-export GOBIN="$HOME/src/other/go/bin"
-export PATH=$PATH:"$HOME/src/other/go/bin"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/src/go/bin
-export PATH=$PATH:$HOME/src/q/scripts
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
-# added by Miniconda2 3.19.0 installer
-export PATH="/home/chris/miniconda2/bin:$PATH"
-export PIP_REQUIRE_VIRTUALENV=false
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-export PATH=/home/chris/miniconda/bin:$PATH
-
-# Add color-coded git branch to bash prompt
-# function git_branch {
-#   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* (*\([^)]*\))*/\1/'
-# }
-
-# function markup_git_branch {
-#   if [[ -n $@ ]]; then
-#     if [[ -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
-#       echo -e " \001\033[32m\002($@)\001\033[0m\002"
-#     else
-#       echo -e " \001\033[31m\002($@)\001\033[0m\002"
-#     fi
-#   fi
-# }
-
-# export PS1="\h:\W\$(markup_git_branch \$(git_branch)) \u$ "
-#PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
-# export GIT_PS1_SHOWDIRTYSTATE=1
-# BLACK="\[\033[0;0m\]"
-# BLUE="\[\033[0;34m\]"
-# BROWN="\[\033[0;33m\]"
-# COLOR_NONE="\[\e[0m\]"
-# CYAN="\[\033[0;36m\]"
-# GREEN="\[\033[0;32m\]"
-# LIGHT_GRAY="\[\033[1;37m\]"
-# LIGHT_GREEN="\[\033[1;32m\]"
-# LIGHT_RED="\[\033[1;31m\]"
-# PURPLE="\[\033[0;35m\]"
-# RED="\[\033[0;31m\]"
-# WHITE="\[\033[0;37m\]"
-# YELLOW="\[\033[0;33m\]"
-
-
-# #export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-# function prompt_func() {
-#     previous_return_value=$?;
-#     TITLEBAR='\[\e]2;\w\a\]'
-#     prompt="${TITLEBAR}${PURPLE}\u@\h ${BLUE}\W${GREEN}$(__git_ps1)${COLOR_NONE} "
-#     if test $previous_return_value -eq 0
-#     then
-#         PS1="${prompt}\$ "
-#     else
-#         PS1="${prompt}${RED}\$${COLOR_NONE} "
-#     fi
-# }
-
-# export PROMPT_COMMAND=prompt_func
-
-if [ -f ~/.bashgit ]; then
-    . ~/.bashgit
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-PS1='\n${debian_chroot:+($debian_chroot)}\u@\h:\w $(__git_ps1 "(%s)")\n\$ '
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 
-alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
 
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\[\033[35m\]\h:\[\033[34m\]\w\[\033[31m\] `git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\\\\\\1\\ /`\[\033[0m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias s='sudo'
+    alias ls='ls --color=auto'
+    alias vi='vim'
+    alias rm='rm -i'
+    #alias sendpatch='git send-email --nochain-reply-to --thread --suppress-cc all --smtp-server /usr/bin/msmtp --from keng-yu.lin@canonical.com --to kernel-team@lists.ubuntu.com'
+    alias svn-clean='svn st --no-ignore | grep "^[I?]" | awk "{print $2}" | xargs rm -rf'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+#alias l='ls -CF'
+alias rm='rm -i'
+alias urpmi='sudo apt-get install'
+alias urpmq='apt-cache search'
+#alias g='grep'
+#alias gr='grep -nHr'
+alias fdr='fakeroot debian/rules'
+alias ssh='ssh -2 -X -o Compression=no -c aes128-gcm@openssh.com' 
+alias rs='redshift -O 4200k -r'
+alias night='sudo sh -c "echo 1 > /sys/class/backlight/intel_backlight/brightness"'
+alias rscp='rsync -aP'
+alias rsmv='rsync -aP --remove-source-files'
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+if [ -d /usr/lib/ccache ]; then
+	export PATH=/usr/lib/ccache:"${PATH}"
+	export CCACHE_NLEVELS=5
+fi
